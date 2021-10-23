@@ -1,24 +1,47 @@
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
 body {
   /* background-color: black; */
   font-family: "Roboto", sans-serif;
-  font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-style: normal;
+  font-size: 16px;
   line-height: 16px;
+  color: white;
 }
 
 a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 1210px; /*берем из макета*/
   padding: 0 10px;
   margin: 0 auto;
+}
+
+.button {
+  border-radius: 25px;
+  display: inline-block;
+}
+
+.header {
+  margin-bottom: 15px;
 }
 
 .header .container {
@@ -46,6 +69,7 @@ a {
   background-color: transparent;
   border: none;
   padding: 13px 20px;
+  padding-right: 40px;
 }
 
 .search-button {
@@ -97,4 +121,155 @@ a {
   border-radius: 50%;
   font-size: 8px;
   line-height: 9px;
+}
+
+.slider {
+  margin-bottom: 50px;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  padding: 101px 76px;
+  min-height: 400px; /*чобы при преполнеии тектс не вылезал за пределы слайда*/
+  border-radius: 20px;
+  overflow: hidden; /*все что не вметсится , скроется*/
+}
+
+.slide-text-light {
+  background-color: grey;
+}
+
+.slide-summer {
+  background-repeat: no-repeat;
+  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
+  background-position: top center;
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.43) 40.45%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../img/summer.png");
+}
+
+.slide__content {
+  max-width: 400px;
+}
+
+.slide__title {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 51px;
+}
+
+.slide__text {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom: 32px;
+}
+
+.button-primary {
+  background: #f47322;
+  padding: 12px 52px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.promo {
+  margin-bottom: 110px;
+}
+
+.promo .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 54px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 570px;
+  min-height: 380px; /*для перепронения , чоб тект не выпадал за картчоку*/
+  padding: 36px 32px;
+  border-radius: 50px;
+  position: relative;
+
+  overflow: hidden; /*все что не уместится  в карточку  не отобразится*/
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: -1; /*тогда текст вылезет на первй план*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.card__text-light {
+  color: #fff;
+}
+
+.card__text-light--sweet-busket {
+  background-image: url("../img/sweet.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
+  background-position: center;
+}
+
+.card__text-light--salad {
+  background-image: url("../img/salad.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
+  background-position: center;
+}
+
+.card__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /*чтобы картинка была под тектсом*/
+  object-fit: cover; /*если кратинка не влезает в контенер, то всечто не вмещается  будет обрезаться*/
+}
+
+.card___title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 23px;
+  margin-bottom: 21px;
+}
+
+.card__desription {
+  max-width: 168px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.card__price {
+  text-decoration: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 23px;
+  margin-bottom: 8px;
+}
+
+.card__delivery {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.card__button {
+  background-color: #fff;
+  color: rgba(95, 95, 97, 1);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
 }
