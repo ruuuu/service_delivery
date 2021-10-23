@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: black; */
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1210px; /*берем из макета*/
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.header__logo {
+}
+
+.search-form {
+  display: flex;
+  /* justify-content: space-between; */
+  position: relative; /*кнопку  поиска будем позицонаить отнсительно этого элемента*/
+  max-width: 620px;
+  flex-grow: 1; /*если останется метсо,  то элементувелиится*/
+  margin-left: 76px;
+  background-color: rgba(238, 238, 238, 0.71);
+  border-radius: 10px;
+}
+
+.search-input {
+  width: 100%; /*такая же как и у родителя*/
+  background-color: transparent;
+  border: none;
+  padding: 13px 20px;
+}
+
+.search-button {
+  position: absolute;
+  top: 10;
+  right: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding-right: 20px;
+  padding-left: 20px; /*тем самы область нажатия увличиваем*/
+  cursor: pointer;
+}
+
+.auth {
+  margin-left: auto; /*флекс элемент прижмется вправо*/
+  display: flex;
+}
+
+.login {
+  display: block;
+  background: #ebebeb;
+  border-radius: 50px;
+  padding: 16px 30px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.shopping-cart {
+  position: relative; /*счетчик будем пзхиционировать относительно этого элемента*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 49px;
+  height: 49px;
+  margin-left: 31px;
+  background-color: #f66a15;
+  border-radius: 50%;
+}
+
+.shoping-counter {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+  padding: 5px;
+  background-color: #ffaf19;
+  border-radius: 50%;
+  font-size: 8px;
+  line-height: 9px;
+}
