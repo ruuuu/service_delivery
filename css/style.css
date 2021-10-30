@@ -1,275 +1,478 @@
 *,
-::before,
-::after {
-  box-sizing: border-box;
+*::before,
+*::after {
+    box-sizing: border-box;
+    /*border и padding входят в ширину контента*/
 }
 
 body {
-  /* background-color: black; */
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 16px;
-  color: white;
+    /* background-color: black; */
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: white;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h1,
 h2,
 h3 {
-  margin: 0;
+    margin: 0;
 }
 
 p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    /* чтоб картинка если она имеет ширbну(в рамзетке) больше чем уродителя , чтоб не выпадалла за контенер(родитель)*/
+    height: auto;
+    /*чтобы изображение не деформировалось и сохраняло свои пропорции.*/
+    /*В браузере Safari картинки могут слегка деформироваться даже после добавления им максимальной ширины и автоматической высоты. Проблему можно решить, обернув картинку в любой подходящий тег, например <figure> или <div>.*/
+    /*у CSS-свойств max-width и height приоритет выше, чем у атрибутов width и height в разметке.*/
 }
 
 .container {
-  max-width: 1210px; /*берем из макета*/
-  padding: 0 10px;
-  margin: 0 auto;
+    max-width: 1210px;
+    /*(1190-ширина контента в макете)+10(паддинг слева)+1(паддинг вправо)0*/
+    padding: 0 10px;
+    margin: 0 auto;
 }
 
 .button {
-  border-radius: 25px;
-  display: inline-block;
+    border-radius: 25px;
+    display: inline-block;
 }
 
 .header {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .header .container {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
 }
 
-.header__logo {
-}
+.header__logo {}
 
 .search-form {
-  display: flex;
-  /* justify-content: space-between; */
-  position: relative; /*кнопку  поиска будем позицонаить отнсительно этого элемента*/
-  max-width: 620px;
-  flex-grow: 1; /*если останется метсо,  то элементувелиится*/
-  margin-left: 76px;
-  background-color: rgba(238, 238, 238, 0.71);
-  border-radius: 10px;
+    display: flex;
+    /* justify-content: space-between; */
+    position: relative;
+    /*кнопку  поиска будем позицонаить отнсительно этого элемента*/
+    max-width: 620px;
+    flex-grow: 1;
+    /*если останется метсо,  то элементувелиится*/
+    margin-left: 76px;
+    background-color: rgba(238, 238, 238, 0.71);
+    border-radius: 10px;
 }
 
 .search-input {
-  width: 100%; /*такая же как и у родителя*/
-  background-color: transparent;
-  border: none;
-  padding: 13px 20px;
-  padding-right: 40px;
+    width: 100%;
+    /*такая же как и у родителя*/
+    background-color: transparent;
+    border: none;
+    padding: 13px 20px;
+    padding-right: 40px;
 }
 
 .search-button {
-  position: absolute;
-  top: 10;
-  right: 0;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  padding-right: 20px;
-  padding-left: 20px; /*тем самы область нажатия увличиваем*/
-  cursor: pointer;
+    position: absolute;
+    top: 10;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding-right: 20px;
+    padding-left: 20px;
+    /*тем самы область нажатия увличиваем*/
+    cursor: pointer;
 }
 
 .auth {
-  margin-left: auto; /*флекс элемент прижмется вправо*/
-  display: flex;
+    margin-left: auto;
+    /*флекс элемент прижмется вправо*/
+    display: flex;
 }
 
 .login {
-  display: block;
-  background: #ebebeb;
-  border-radius: 50px;
-  padding: 16px 30px;
-  color: rgba(0, 0, 0, 1);
+    display: block;
+    background: #ebebeb;
+    border-radius: 50px;
+    padding: 16px 30px;
+    color: rgba(0, 0, 0, 1);
 }
 
 .shopping-cart {
-  position: relative; /*счетчик будем пзхиционировать относительно этого элемента*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 49px;
-  height: 49px;
-  margin-left: 31px;
-  background-color: #f66a15;
-  border-radius: 50%;
+    position: relative;
+    /*счетчик будем пзхиционировать относительно этого элемента*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 49px;
+    margin-left: 31px;
+    background-color: #f66a15;
+    border-radius: 50%;
 }
 
 .shoping-counter {
-  position: absolute;
-  display: block;
-  bottom: 0;
-  right: -5px;
-  width: 18px;
-  height: 18px;
-  padding: 5px;
-  background-color: #ffaf19;
-  border-radius: 50%;
-  font-size: 8px;
-  line-height: 9px;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    padding: 5px;
+    background-color: #ffaf19;
+    border-radius: 50%;
+    font-size: 8px;
+    line-height: 9px;
 }
 
 .slider {
-  margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .slide {
-  display: flex;
-  align-items: center;
-  padding: 101px 76px;
-  min-height: 400px; /*чобы при преполнеии тектс не вылезал за пределы слайда*/
-  border-radius: 20px;
-  overflow: hidden; /*все что не вметсится , скроется*/
+    display: flex;
+    align-items: center;
+    padding: 101px 76px;
+    min-height: 400px;
+    /*чобы при преполнеии тектс не вылезал за пределы слайда*/
+    border-radius: 20px;
+    overflow: hidden;
+    /*все что не вметсится , скроется*/
 }
 
 .slide-text-light {
-  background-color: grey;
+    background-color: grey;
 }
 
 .slide-summer {
-  background-repeat: no-repeat;
-  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
-  background-position: top center;
-  background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.43) 40.45%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    url("../img/summer.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*изображене расятнется и заполнит весь слайд*/
+    background-position: top center;
+    background: linear-gradient( 90deg, rgba(0, 0, 0, 0.43) 40.45%, rgba(0, 0, 0, 0) 100%), url("../img/summer.png");
 }
 
 .slide__content {
-  max-width: 400px;
+    max-width: 400px;
 }
 
 .slide__title {
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 51px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 51px;
 }
 
 .slide__text {
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 23px;
-  margin-bottom: 32px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 23px;
+    margin-bottom: 32px;
 }
 
 .button-primary {
-  background: #f47322;
-  padding: 12px 52px;
-  color: #fff;
-  font-size: 14px;
+    background: #f47322;
+    padding: 12px 52px;
+    color: #fff;
+    font-size: 14px;
 }
 
 .promo {
-  margin-bottom: 110px;
+    padding-top: 25px;
+    padding-bottom: 55px;
 }
 
 .promo .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 54px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 54px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 570px;
-  min-height: 380px; /*для перепронения , чоб тект не выпадал за картчоку*/
-  padding: 36px 32px;
-  border-radius: 50px;
-  position: relative;
-
-  overflow: hidden; /*все что не уместится  в карточку  не отобразится*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 570px;
+    /*ширина кратчоки в макете*/
+    min-height: 380px;
+    /*для перепронения , чоб тект не выпадал за картчоку*/
+    padding: 36px 32px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    /*все что не уместится  в карточку  не отобразится*/
 }
 
 .card::before {
-  content: "";
-  position: absolute;
-  z-index: -1; /*тогда текст вылезет на первй план*/
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    content: "";
+    position: absolute;
+    z-index: -1;
+    /*тогда текст вылезет на первй план*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
 .card__text-light {
-  color: #fff;
+    color: #fff;
 }
 
 .card__text-light--sweet-busket {
-  background-image: url("../img/sweet.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
-  background-position: center;
+    background-image: url("../img/sweet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*изображене расятнется и заполнит весь слайд*/
+    background-position: center;
 }
 
 .card__text-light--salad {
-  background-image: url("../img/salad.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; /*изображене расятнется и заполнит весь слайд*/
-  background-position: center;
+    background-image: url("../img/salad.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*изображене расятнется и заполнит весь слайд*/
+    background-position: center;
 }
 
-.card__img {
+
+/* .card__img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /*чтобы картинка была под тектсом*/
-  object-fit: cover; /*если кратинка не влезает в контенер, то всечто не вмещается  будет обрезаться*/
-}
+  z-index: -2; /*чтобы картинка была под тектсом
+  object-fit: cover; /*если кратинка не влезает в контенер, то всечто не вмещается  будет обрезаться
+} */
 
 .card___title {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 23px;
-  margin-bottom: 21px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 23px;
+    margin-bottom: 21px;
 }
 
 .card__desription {
-  max-width: 168px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 23px;
+    max-width: 168px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
 }
 
 .card__price {
-  text-decoration: uppercase;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 23px;
-  margin-bottom: 8px;
+    text-decoration: uppercase;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 23px;
+    margin-bottom: 8px;
 }
 
 .card__delivery {
-  display: block;
-  margin-bottom: 25px;
+    display: block;
+    margin-bottom: 25px;
 }
 
 .card__button {
-  background-color: #fff;
-  color: rgba(95, 95, 97, 1);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 23px;
+    background-color: #fff;
+    color: rgba(95, 95, 97, 1);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.deliver-week {
+    padding-top: 55px;
+    padding-bottom: 100px;
+}
+
+.section-title {
+    margin-bottom: 47px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.delivery-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px 32px;
+    /* display: flex;
+    flex-wrap: wrap;
+    margin: -15px; */
+}
+
+.delivery-card {
+    position: relative;
+    /*отноистлеьно этгго позиционуем tag*/
+    width: 275px;
+    height: 182px;
+    border-radius: 18px;
+    overflow: hidden;
+    /*все чтон е вместится  скарточку таког рамзера скроем*/
+    /* margin: 15px; если родитель будет флекс бокосом*/
+}
+
+.delivey-image {
+    width: 100%;
+    /*как и у родителя*/
+    height: 100%;
+    object-fit: cover;
+    /*чтоб картинка не сжимаалась/сплющивалась*/
+}
+
+.delivery-tag {
+    position: absolute;
+    left: 10px;
+    top: 16px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.delivery-tag--health {
+    background-color: #D0FD89;
+    color: #49494F;
+}
+
+.sectin-grey {
+    background-color: #F6F6F6;
+}
+
+.category {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.tabs {
+    display: flex;
+    margin-right: 58px;
+    margin-bottom: 62px;
+}
+
+.tabs li:not(:last-child) {
+    /*применит ко всем кроме последнего*/
+    margin-right: 58px;
+}
+
+.tabs-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 37px;
+    margin-bottom: 62px;
+}
+
+.tabs-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    /*ширина кратчоки в макете*/
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #fff;
+    font-weight: 500;
+}
+
+.tabs-image {
+    display: block;
+    margin-bottom: 21px;
+}
+
+.tabs-container {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+}
+
+.tabs-title {
+    margin-bottom: 13px;
+}
+
+.tabs-title {
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.tabs-description {
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 23px;
+    color: #B9B9BE;
+}
+
+.tabs-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs-good {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-price {
+    font-size: 23px;
+    line-height: 23px;
+    color: #4B4B51;
+}
+
+.tabs-weight {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    color: #AAAAB1;
+}
+
+.button-outline {
+    width: 125px;
+    color: #F37321;
+    border: 1px solid #F37321;
+    background-color: #ffffff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-button {
+    max-width: 315px;
+    width: 315px;
+}
+
+.big-button {
+    background-color: #F6F6F6;
+}
+
+.feature {
+    padding-top: 100px;
+    padding-bottom: 202px;
+}
+
+.features .section-title {
+    margin-bottom: 52px;
 }
